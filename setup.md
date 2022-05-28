@@ -1,5 +1,6 @@
 # Setup
 
+https://192.168.4.2:8006
 
 ```bash
 cd /etc/network
