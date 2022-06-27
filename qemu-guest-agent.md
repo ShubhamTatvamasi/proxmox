@@ -21,6 +21,8 @@ sudo systemctl status qemu-guest-agent
 ## Rocky Linux
 
 ```bash
+su root # password: rocky
+
 yum install qemu-guest-agent
 systemctl start qemu-guest-agent
 systemctl status qemu-guest-agent
