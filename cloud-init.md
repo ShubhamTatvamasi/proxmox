@@ -1,5 +1,9 @@
 # cloud-init
 
+Source: https://pve.proxmox.com/wiki/Cloud-Init_Support
+
+## Ubuntu Setup
+
 Download the cloud init ubuntu image:
 ```bash
 wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img
@@ -41,5 +45,24 @@ Convert it to template:
 ```bash
 qm template 9000
 ```
+---
 
-Source: https://pve.proxmox.com/wiki/Cloud-Init_Support
+## Rockey linux Setup
+
+```bash
+# download rocky linux cloud image
+wget https://dl.rockylinux.org/pub/rocky/8.6/images/Rocky-8-GenericCloud.latest.x86_64.qcow2
+
+# create VM from image
+qm create 9100 --memory 1024 --net0 virtio,bridge=vmbr0
+qm importdisk 9100 Rocky-8-GenericCloud.latest.x86_64.qcow2 local-lvm
+qm set 9100 --scsihw virtio-scsi-pci --scsi0 local-lvm:vm-9100-disk-0
+
+# Attach cloud-init disk
+qm set 9100 --ide2 local-lvm:cloudinit
+qm set 9100 --boot c --bootdisk scsi0
+qm set 9100 --serial0 socket --vga serial0
+
+# convert VM to template
+qm template 9100
+```
