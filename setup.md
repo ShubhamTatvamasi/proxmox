@@ -2,6 +2,8 @@
 
 https://192.168.4.2:8006
 
+**enp17s0f0np0**
+
 ```bash
 cd /etc/network
 mkdir interface.d
