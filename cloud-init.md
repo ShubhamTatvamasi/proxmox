@@ -17,7 +17,7 @@ qm importdisk 9000 focal-server-cloudimg-amd64.img local-lvm
 
 finally attach the new disk to the VM as scsi drive:
 ```bash
-qm set 9000 --scsihw virtio-scsi-pci --scsi0 local-lvm:vm-9000-disk-1
+qm set 9000 --scsihw virtio-scsi-pci --scsi0 local-lvm:vm-9000-disk-0
 ```
 
 ### Add Cloud-Init CD-ROM drive
