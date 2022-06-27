@@ -1,5 +1,7 @@
 # Qemu Guest Agent
 
+## Ubuntu
+
 Install qemu agent:
 ```bash
 sudo apt install qemu-guest-agent -y
@@ -14,3 +16,13 @@ Check status of qemu status:
 ```bash
 sudo systemctl status qemu-guest-agent
 ```
+---
+
+## Rocky Linux
+
+```bash
+yum install qemu-guest-agent
+systemctl start qemu-guest-agent
+systemctl status qemu-guest-agent
+```
+
