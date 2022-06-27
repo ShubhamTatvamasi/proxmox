@@ -24,8 +24,6 @@ finally attach the new disk to the VM as scsi drive:
 qm set 9000 --scsihw virtio-scsi-pci --scsi0 local-lvm:vm-9000-disk-0
 ```
 
-### Add Cloud-Init CD-ROM drive
-
 Add cloud-init CD rom:
 ```bash
 qm set 9000 --ide2 local-lvm:cloudinit
