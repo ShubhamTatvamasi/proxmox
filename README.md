@@ -6,6 +6,7 @@ https://pve.proxmox.com/wiki/Cloud-Init_Support
 
 https://pve.proxmox.com/wiki/Qemu-guest-agent
 
+DHCP server: https://bobcares.com/blog/dnsmasq-dhcp-server-in-proxmox/
 
 ### VM
 
