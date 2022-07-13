@@ -2,6 +2,12 @@
 
 ## Ubuntu
 
+Quick link:
+```bash
+sudo apt install qemu-guest-agent -y && sudo systemctl start qemu-guest-agent
+```
+---
+
 Install qemu agent:
 ```bash
 sudo apt install qemu-guest-agent -y
