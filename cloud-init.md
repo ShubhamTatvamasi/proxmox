@@ -65,6 +65,7 @@ qm set 9100 --serial0 socket --vga serial0
 qm template 9100
 ```
 ---
+
 ### CentOS 7 Setup
 
 ```bash
@@ -83,6 +84,27 @@ qm set 9200 --serial0 socket --vga serial0
 
 # convert VM to template
 qm template 9200
+```
+---
+
+### Ubuntu Jammy Setup
+
+```bash
+# download Ubuntu jammy 7 cloud image
+wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
+
+# create VM from image
+qm create 9300 --memory 1024 --net0 virtio,bridge=vmbr0
+qm importdisk 9300 jammy-server-cloudimg-amd64.img local-lvm
+qm set 9300 --scsihw virtio-scsi-pci --scsi0 local-lvm:vm-9300-disk-0
+
+# Attach cloud-init disk
+qm set 9300 --ide2 local-lvm:cloudinit
+qm set 9300 --boot c --bootdisk scsi0
+qm set 9300 --serial0 socket --vga serial0
+
+# convert VM to template
+qm template 9300
 ```
 
 
