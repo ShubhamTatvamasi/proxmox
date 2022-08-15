@@ -90,7 +90,7 @@ qm template 9200
 ### Ubuntu Jammy Setup
 
 ```bash
-# download Ubuntu jammy 7 cloud image
+# download Ubuntu Jammy cloud image
 wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
 
 # create VM from image
@@ -107,5 +107,24 @@ qm set 9300 --serial0 socket --vga serial0
 qm template 9300
 ```
 
+### Fedora Setup
+
+```bash
+# download Fedora cloud image
+wget https://download.fedoraproject.org/pub/fedora/linux/releases/36/Cloud/x86_64/images/Fedora-Cloud-Base-36-1.5.x86_64.qcow2
+
+# create VM from image
+qm create 9400 --memory 1024 --net0 virtio,bridge=vmbr0
+qm importdisk 9400 Fedora-Cloud-Base-36-1.5.x86_64.qcow2 local-lvm
+qm set 9400 --scsihw virtio-scsi-pci --scsi0 local-lvm:vm-9400-disk-0
+
+# Attach cloud-init disk
+qm set 9400 --ide2 local-lvm:cloudinit
+qm set 9400 --boot c --bootdisk scsi0
+qm set 9400 --serial0 socket --vga serial0
+
+# convert VM to template
+qm template 9400
+```
 
 
