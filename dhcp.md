@@ -27,6 +27,12 @@ dhcp-option=vmbr0,3,192.168.4.1
 dhcp-leasefile=/var/lib/misc/dnsmasq.leases
 ```
 
+Restart DHCP Server:
+```bash
+systemctl restart dnsmasq
+systemctl enable dnsmasq
+```
+
 Check the status of the DHCP Server service:
 ```bash
 systemctl status dnsmasq
