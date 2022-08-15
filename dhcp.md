@@ -43,3 +43,16 @@ Check DHCP Server logs:
 journalctl -u dnsmasq
 ```
 
+### DHCP Client
+
+Release old IP:
+```bash
+sudo dhclient -r
+```
+
+Get new IP:
+```bash
+sudo dhclient
+```
+
+
