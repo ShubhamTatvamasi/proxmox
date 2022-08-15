@@ -49,11 +49,11 @@ qm template 9000
 
 ```bash
 # download rocky linux cloud image
-wget https://dl.rockylinux.org/pub/rocky/8.6/images/Rocky-8-GenericCloud.latest.x86_64.qcow2
+wget https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-GenericCloud-9.0-20220706.0.x86_64.qcow2
 
 # create VM from image
 qm create 9100 --memory 1024 --net0 virtio,bridge=vmbr0
-qm importdisk 9100 Rocky-8-GenericCloud.latest.x86_64.qcow2 local-lvm
+qm importdisk 9100 Rocky-9-GenericCloud-9.0-20220706.0.x86_64.qcow2 local-lvm
 qm set 9100 --scsihw virtio-scsi-pci --scsi0 local-lvm:vm-9100-disk-0
 
 # Attach cloud-init disk
