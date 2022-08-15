@@ -1,11 +1,11 @@
 # DHCP Server
 
-Install DHCP Server
+Install DHCP Server:
 ```bash
 apt install dnsmasq -y
 ```
 
-Update IP range config
+Update IP range config:
 ```bash
 vim /etc/dnsmasq.conf
 ```
@@ -31,3 +31,9 @@ Check the status of the DHCP Server service:
 ```bash
 systemctl status dnsmasq
 ```
+
+Check DHCP Server logs:
+```bash
+journalctl -u dnsmasq
+```
+
