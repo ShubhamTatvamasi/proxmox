@@ -27,10 +27,10 @@ dhcp-option=vmbr0,3,192.168.4.1
 dhcp-leasefile=/var/lib/misc/dnsmasq.leases
 
 # line 551
-dhcp-authoritative
+#dhcp-authoritative
 
 # line 667
-log-dhcp
+#log-dhcp
 ```
 
 Restart DHCP Server:
