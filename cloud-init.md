@@ -2,6 +2,11 @@
 
 Source: https://pve.proxmox.com/wiki/Cloud-Init_Support
 
+Empty the `machine-id` file or it will keep on taking same IP from DHCP Server:
+```bash
+sudo truncate -s 0 /etc/machine-id
+```
+
 ### Ubuntu Setup
 
 Download the cloud init ubuntu image:
