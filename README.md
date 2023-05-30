@@ -10,6 +10,8 @@ https://pve.proxmox.com/wiki/Qemu-guest-agent
 
 DHCP server: https://bobcares.com/blog/dnsmasq-dhcp-server-in-proxmox/
 
+Remove No valid subscription message: https://www.geekdecoder.com/how-to-remove-you-do-not-have-a-valid-subscription-for-this-server-on-proxmox/
+
 ### VM
 
 list all vm:
