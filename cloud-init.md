@@ -7,6 +7,28 @@ Empty the `machine-id` file or it will keep on taking same IP from DHCP Server:
 sudo truncate -s 0 /etc/machine-id
 ```
 
+### Ubuntu Noble Setup
+
+```
+# download Ubuntu noble cloud image
+wget https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img
+
+# create VM from image
+qm create 9000 --memory 1024 --net0 virtio,bridge=vmbr0
+qm importdisk 9000 noble-server-cloudimg-amd64.img local-lvm
+qm set 9000 --scsihw virtio-scsi-pci --scsi0 local-lvm:vm-9000-disk-0
+
+# Attach cloud-init disk
+qm set 9000 --ide2 local-lvm:cloudinit
+qm set 9000 --boot c --bootdisk scsi0
+qm set 9000 --serial0 socket --vga serial0
+
+# convert VM to template
+qm template 9000
+```
+
+---
+
 ### Ubuntu Setup
 
 Download the cloud init ubuntu image:
